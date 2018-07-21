@@ -29,7 +29,7 @@ class Pub_Controller extends REST_Controller {
      * @param int $level  数据补充是否和错误码平级 默认1同级
      */
     public function show_response($code = 0, $data = NULL, $level = 1, $msg = '') {
-        $response = Common::response($code, $data, $level, $msg, 'rest');
+        $response = Collective::response($code, $data, $level, $msg, 'rest');
 
         return $this->response($response, $this->_status_code);
     }

@@ -8,13 +8,13 @@
  */
 
 switch($_SERVER["SERVER_ADDR"]) {
+    //测试网
     case "127.0.0.1":
-        define('ENVIRONMENT', 'development');
+        $environment = 'development';
         break;
 
-    case "10.135.9.186": //环境
-        define('ENVIRONMENT', 'production');
-
     default:
-        define('ENVIRONMENT', 'development');
+        $environment = ($_SERVER['SERVER_PORT'] == 31002) ? 'development' : 'production';
 }
+
+define('ENVIRONMENT', $environment);

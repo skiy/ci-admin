@@ -10,19 +10,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MY_Loader extends CI_Loader {
     protected $_ci_logics =	array();
-    protected $_ci_logic_paths =	array(APPPATH);
+    protected $_ci_logic_paths =	array(APPPATH, ASSETS);
 
     protected $_ci_services =	array();
-    protected $_ci_service_paths =	array(APPPATH);
+    protected $_ci_service_paths =	array(APPPATH, ASSETS);
 
     public function __construct() {
         parent::__construct();
-		
-		$this->_ci_ob_level  = ob_get_level();
-		$this->_ci_library_paths = array(APPPATH, ASSETS, BASEPATH);
-		$this->_ci_helper_paths = array(APPPATH, ASSETS, BASEPATH);
-		$this->_ci_model_paths = array(APPPATH, ASSETS);
-		$this->_ci_view_paths = array(APPPATH.'views/'	=> TRUE, ASSETS.'views/'=>TRUE);
+
+        $this->_ci_ob_level  = ob_get_level();
+        $this->_ci_library_paths = array(APPPATH, ASSETS, BASEPATH);
+        $this->_ci_helper_paths = array(APPPATH, ASSETS, BASEPATH);
+        $this->_ci_model_paths = array(APPPATH, ASSETS);
+        $this->_ci_view_paths = array(APPPATH.'views/'	=> TRUE, ASSETS.'views/'=>TRUE);
 
         $this->_ci_logic_paths = array(APPPATH, ASSETS);
     }
@@ -139,5 +139,4 @@ class MY_Loader extends CI_Loader {
         $CI->$name = new $logic();
         return $this;
     }
-
 }

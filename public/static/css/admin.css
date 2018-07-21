@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.content {
+    padding-top: 8px;
+}
+
+.content-title-add {
+    padding-top: 12px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.user-panel>.info>span {
+    font-size: 11px;
+}
+
+.box-footer>.pagination>li>span:focus,
+.box-footer>.pagination>li>span:hover,
+.box-footer>.pagination>li>span {
+    color: #666;
+    background-color: #fff;
+}
+
+.box-footer>.pagination>li>span.detail {
+    border: none;
+}

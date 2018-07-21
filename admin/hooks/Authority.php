@@ -11,15 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Authority {
     private $_ci;
 
-    //白名单实例方法
-    private $_white_method = [
-        'user' => 'login,login_ajax',
-    ];
-
-    //白名单实例
-    private $_white_class = [
-    ];
-
     public function __construct() {
         $this->_ci = & get_instance();
     }
@@ -32,14 +23,18 @@ class Authority {
         $class = $this->_ci->router->class;
         $method = $this->_ci->router->method;
 
+        $this->_ci->load->config('hooks_white_list');
+        $white_class = $this->_ci->config->item('hooks_white_class');
+        $white_method = $this->_ci->config->item('hooks_white_method');
+
         //白名单实例
-        if (in_array($class, $this->_white_class)) {
+        if (in_array($class, $white_class)) {
             return TRUE;
         }
 
         //白名单方法
-        if (array_key_exists($class, $this->_white_method)) {
-            $my_methods = $this->_white_method[$class];
+        if (array_key_exists($class, $white_method)) {
+            $my_methods = $white_method[$class];
             is_string($my_methods) && $my_methods = explode(',', $my_methods);
 
             if (in_array($method, $my_methods)) {
@@ -63,9 +58,9 @@ class Authority {
         }
 
         $_is_ajax = $this->_ci->input->is_ajax_request();
-        $_is_axios = ($this->_ci->input->method() == 'post') || ($this->input->raw_input_stream !== NULL);
+        $_is_axios = ($this->_ci->input->method() == 'post') || ($this->_ci->input->raw_input_stream !== '');
         if ($_is_ajax || $_is_axios) {
-            Collective::response(-202);
+            Collective::response(50004);
             exit;
         }
 
