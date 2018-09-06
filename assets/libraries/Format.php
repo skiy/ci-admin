@@ -63,7 +63,7 @@ class Format {
      *
      * @var mixed
      */
-    protected $_data = [];
+    protected $_data = array();
 
     /**
      * Type to convert from
@@ -146,7 +146,7 @@ class Format {
             $data = (array) $data;
         }
 
-        $array = [];
+        $array = array();
         foreach ((array) $data as $key => $value)
         {
             if (is_object($value) === TRUE || is_array($value) === TRUE)

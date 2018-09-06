@@ -27,7 +27,7 @@ class User_model extends MY_Model {
             return FALSE;
         }
 
-        $where = [];
+        $where = array();
         if ($uid !== '') {
             $where['id'] = $uid;
         }
@@ -65,7 +65,7 @@ class User_model extends MY_Model {
      * @param array $where_arr
      * @return mixed
      */
-    public function modify_user($uid, $data, $where_arr=[]) {
+    public function modify_user($uid, $data, $where_arr=array()) {
         $where = [
             'id' => $uid,
         ];
@@ -90,7 +90,7 @@ class User_model extends MY_Model {
      * @param array $limit
      * @return mixed
      */
-    public function login_log_list($where, $where_ext=[], $limit=[]) {
+    public function login_log_list($where, $where_ext=array(), $limit=array()) {
         $this->db->where($where);
         $where_ext_str = $this->make_and_wh($where_ext);
         $this->db->where($where_ext_str);

@@ -111,7 +111,7 @@ class User extends MY_Controller {
             $this->modify_pwd_ajax();
         }
 
-        $response = [];
+        $response = array();
         $this->load->view('public/header');
         $this->load->view('public/sidebar', $this->sidebar);
         $this->load->view('user/modify_pwd', $response);
@@ -162,10 +162,10 @@ class User extends MY_Controller {
         ];
 
 
-        $data = [];
+        $data = array();
 
-        $where_ext = [];
-        $where = [];
+        $where_ext = array();
+        $where = array();
 
         $counts = $this->user_logic->login_log_list($where, $where_ext, 'rows');
         $account_res = $this->user_logic->login_log_list($where, $where_ext, $limit);
