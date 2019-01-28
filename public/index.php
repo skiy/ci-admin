@@ -56,7 +56,7 @@
 
 #	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-require_once __DIR__ . '/env.php';	
+require_once dirname(__DIR__) . '/env.php';	
 
 /*
  *---------------------------------------------------------------
