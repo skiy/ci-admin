@@ -39,7 +39,7 @@ class Collective {
      * @param string $format 返回格式
      * @return array
      */
-    public static function response($code = 0, $data_arr = [], $level = 1, $msg = '', $format = 'json') {
+    public static function response($code = 0, $data_arr = array(), $level = 1, $msg = '', $format = 'json') {
 
         $data = [
             'code'      => $code,
@@ -107,7 +107,7 @@ class Collective {
      * @param array $param_arr 格式化时作为 sprintf 的参数
      * @return mixed|string
      */
-     public static function get_return_message($flag = 0, $param_arr = []) {
+     public static function get_return_message($flag = 0, $param_arr = array()) {
         $CI = & get_instance();
         $msg = '';
         if (is_numeric($flag)) {
@@ -155,7 +155,7 @@ class Collective {
         $info_arr = explode('|', $data['region']);
 //        var_dump($info_arr);exit;
 
-        $city_arr = [];
+        $city_arr = array();
         if ($info_arr[4] == '内网IP') {
             return ['内网IP'];
         }

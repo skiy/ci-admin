@@ -14,7 +14,7 @@ class Home extends MY_Controller {
     }
 
     public function index() {
-        $response = [];
+        $response = array();
         $this->load->view('public/header');
         $this->load->view('public/sidebar', $this->sidebar);
         $this->load->view('home/index', $response);

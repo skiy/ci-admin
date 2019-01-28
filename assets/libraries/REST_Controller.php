@@ -162,7 +162,7 @@ abstract class REST_Controller extends CI_Controller {
      *
      * @var array
      */
-    protected $methods = [];
+    protected $methods = array();
 
     /**
      * List of allowed HTTP methods
@@ -203,63 +203,63 @@ abstract class REST_Controller extends CI_Controller {
      *
      * @var array
      */
-    protected $_get_args = [];
+    protected $_get_args = array();
 
     /**
      * The arguments for the POST request method
      *
      * @var array
      */
-    protected $_post_args = [];
+    protected $_post_args = array();
 
     /**
      * The arguments for the PUT request method
      *
      * @var array
      */
-    protected $_put_args = [];
+    protected $_put_args = array();
 
     /**
      * The arguments for the DELETE request method
      *
      * @var array
      */
-    protected $_delete_args = [];
+    protected $_delete_args = array();
 
     /**
      * The arguments for the PATCH request method
      *
      * @var array
      */
-    protected $_patch_args = [];
+    protected $_patch_args = array();
 
     /**
      * The arguments for the HEAD request method
      *
      * @var array
      */
-    protected $_head_args = [];
+    protected $_head_args = array();
 
     /**
      * The arguments for the OPTIONS request method
      *
      * @var array
      */
-    protected $_options_args = [];
+    protected $_options_args = array();
 
     /**
      * The arguments for the query parameters
      *
      * @var array
      */
-    protected $_query_args = [];
+    protected $_query_args = array();
 
     /**
      * The arguments from GET, POST, PUT, DELETE, PATCH, HEAD and OPTIONS request methods combined
      *
      * @var array
      */
-    protected $_args = [];
+    protected $_args = array();
 
     /**
      * The insert_id of the log entry (if we have one)
@@ -405,7 +405,7 @@ abstract class REST_Controller extends CI_Controller {
         // Validate the configuration setting output formats
         if (empty($supported_formats))
         {
-            $supported_formats = [];
+            $supported_formats = array();
         }
 
         if ( ! is_array($supported_formats))
@@ -460,7 +460,7 @@ abstract class REST_Controller extends CI_Controller {
         // Create an argument container if it doesn't exist e.g. _get_args
         if (isset($this->{'_'.$this->request->method.'_args'}) === FALSE)
         {
-            $this->{'_'.$this->request->method.'_args'} = [];
+            $this->{'_'.$this->request->method.'_args'} = array();
         }
 
         // Set up the query parameters
@@ -618,7 +618,7 @@ abstract class REST_Controller extends CI_Controller {
      * @param  string $object_called
      * @param  array $arguments The arguments passed to the controller method
      */
-    public function _remap($object_called, $arguments = [])
+    public function _remap($object_called, $arguments = array())
     {
         // Should we answer if not over SSL?
         if ($this->config->item('force_https') && $this->request->ssl === FALSE)
@@ -885,7 +885,7 @@ abstract class REST_Controller extends CI_Controller {
     {
         // Concatenate formats to a regex pattern e.g. \.(csv|json|xml)
         $pattern = '/\.('.implode('|', array_keys($this->_supported_formats)).')($|\/)/';
-        $matches = [];
+        $matches = array();
 
         // Check if a file extension is used e.g. http://example.com/api/index.json?param1=param2
         if (preg_match($pattern, $this->uri->uri_string(), $matches))
@@ -1071,7 +1071,7 @@ abstract class REST_Controller extends CI_Controller {
         {
             $langs = explode(',', $lang);
 
-            $return_langs = [];
+            $return_langs = array();
             foreach ($langs as $lang)
             {
                 // Remove weight and trim leading and trailing whitespace
@@ -2006,7 +2006,7 @@ abstract class REST_Controller extends CI_Controller {
         }
 
         // We need to retrieve authentication data from the $digest_string variable
-        $matches = [];
+        $matches = array();
         preg_match_all('@(username|nonce|uri|nc|cnonce|qop|response)=[\'"]?([^\'",]+)@', $digest_string, $matches);
         $digest = (empty($matches[1]) || empty($matches[2])) ? [] : array_combine($matches[1], $matches[2]);
 

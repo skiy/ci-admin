@@ -93,7 +93,7 @@ class User_logic extends Logic {
      * @param array $where
      * @return mixed
      */
-    public function modify_user($uid, $data, $where=[]) {
+    public function modify_user($uid, $data, $where=array()) {
         $resp = $this->user_model->modify_user($uid, $data, $where);
 
         if ($resp > 0) {
@@ -127,7 +127,7 @@ class User_logic extends Logic {
      * @param array $limit
      * @return mixed
      */
-    public function login_log_list($where, $where_ext=[], $limit=[]) {
+    public function login_log_list($where, $where_ext=array(), $limit=array()) {
         $resp = $this->user_model->login_log_list($where, $where_ext, $limit);
         return $resp;
     }
