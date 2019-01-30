@@ -1,8 +1,8 @@
-CodeIgniter 3 Restful Api
-
-一个基于 [Codeignter](https://github.com/bcit-ci/CodeIgniter) 和 [AdminLTE](https://github.com/almasaeed2010/AdminLTE) 的管理后台项目。
+CodeIgniter 3 Admin
 -------------------------
-CI Version: 3.1.10
+一个基于 [Codeignter](https://github.com/bcit-ci/CodeIgniter) 和 [AdminLTE](https://github.com/almasaeed2010/AdminLTE) 的管理后台项目。   
+
+**CI Version:** ```3.1.10```   
 
 -------------------------
 ## 使用方法
