@@ -2,7 +2,7 @@ CodeIgniter 3 Admin
 -------------------------
 一个基于 [Codeignter](https://github.com/bcit-ci/CodeIgniter) 和 [AdminLTE](https://github.com/almasaeed2010/AdminLTE) 的管理后台脚手架。   
 
-**CI Version:** ```3.1.10```   
+**CI Version:** ```3.1.11```   
 
 -------------------------
 ## 使用方法
